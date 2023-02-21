@@ -66,8 +66,21 @@ describe('ListItem', () => {
     
 
     //TODO: implement this
-    it('callback is not called when not checkable', () => {});
-
+    it('callback is not called when not checkable', () => {
+        const { getByTestId } = render(
+            <ListItem
+                id='list-item-1'
+                checkable={true}
+                onCheck={mockOnCheck}
+                item='Lorem ipsum dolor sit amet consectetur'
+            />
+        );
+        const checkbox = getByTestId('test-list-item-1');
+        fireEvent.click(checkbox);
+    
+        expect(mockOnCheck).toHaveBeenCalled();
+    });
+    
     //TODO: implement this
     it('matches saved snapshot', () => {
         const tree = render(
