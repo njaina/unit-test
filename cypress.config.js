@@ -3,6 +3,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
+    specPattern: "**/*.cy.{jsx,js,ts,tsx}",
     setupNodeEvents(on) {
       const options = {
         webpackOptions: require("./webpack.config"),
